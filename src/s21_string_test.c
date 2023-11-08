@@ -24,6 +24,16 @@ void s21_strcat_test(const char *input1, const char *input2, const char *expecte
     printf("Input1: \"%s\", Input2: \"%s\", Result: \"%s\", %s\n", input1, input2, output,
            (s21_strcmp(expected, output) != 0) ? "SUCCESS" : "FAIL");
 }
+void s21_strchr_test(const char *input, int character, const char *expected) {
+    char *result = s21_strchr(input, character);
+    if ((result != NULL && expected != NULL && *result == character) || (result == expected)) {
+        printf("Input: \"%s\", Character: '%c', Result: \"%s\", SUCCESS\n", input, character,
+               (result != NULL) ? result : "NULL");
+    } else {
+        printf("Input: \"%s\", Character: '%c', Result: \"%s\", FAIL\n", input, character,
+               (result != NULL) ? result : "NULL");
+    }
+}
 
 int main() {
 #ifdef STRLEN
@@ -48,6 +58,11 @@ int main() {
     s21_strcat_test("", "", "");
     s21_strcat_test("1\n 2", "1\n 2", "1\n 21\n 2");
     s21_strcat_test("1", "2", "1");
+#endif
+#ifdef STRCHR
+    s21_strchr_test("Hello, World!", 'o', "o, World!");
+    s21_strchr_test("12345", '4', "45");
+    s21_strchr_test("aB", 'a', "aB");
 #endif
     return 0;
 }
