@@ -12,6 +12,9 @@ strcmp_tests : clean
 
 strcpy_tests : clean
 	$(CC) $(CFLAGS) -D STRCPY s21_string.c s21_string_test.c -o $(BUILD_DIR)/Quest_3
+
+strcat_tests : clean
+	$(CC) $(CFLAGS) -D STRCAT s21_string.c s21_string_test.c -o $(BUILD_DIR)/Quest_4
 	
 clean:
 	rm -f ./*.o

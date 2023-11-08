@@ -42,3 +42,17 @@ int s21_strcpy(char* destination, const char* source) {
     *destination = '\0';
     return 1;
 }
+
+void s21_strcat(char* dest, const char* src) {
+    while (*dest != '\0') {
+        dest++;
+    }
+
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+
+    *dest = '\0';
+}

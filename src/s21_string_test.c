@@ -17,6 +17,13 @@ void s21_strcpy_test(char *input, const char *expected) {
     printf("Input: \"%s\", Result: \"%s\", %s\n", input, output,
            (s21_strcmp(expected, output) != 0) ? "SUCCESS" : "FAIL");
 }
+void s21_strcat_test(const char *input1, const char *input2, const char *expected) {
+    char output[100];
+    s21_strcpy(output, input1);
+    s21_strcat(output, input2);
+    printf("Input1: \"%s\", Input2: \"%s\", Result: \"%s\", %s\n", input1, input2, output,
+           (s21_strcmp(expected, output) != 0) ? "SUCCESS" : "FAIL");
+}
 
 int main() {
 #ifdef STRLEN
@@ -35,6 +42,12 @@ int main() {
     s21_strcpy_test("ABC", "ABC");
     s21_strcpy_test("", "");
     s21_strcpy_test("1\n 2", "1\n 2");
+#endif
+#ifdef STRCAT
+    s21_strcat_test("ABC", "ABC", "ABCABC");
+    s21_strcat_test("", "", "");
+    s21_strcat_test("1\n 2", "1\n 2", "1\n 21\n 2");
+    s21_strcat_test("1", "2", "1");
 #endif
     return 0;
 }
