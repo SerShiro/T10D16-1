@@ -29,3 +29,16 @@ int s21_strcmp(const char* str1, const char* str2) {
     }
     return 1;
 }
+
+int s21_strcpy(char* destination, const char* source) {
+    if (!source) {
+        return 0;
+    }
+    while (*source != '\0') {
+        *destination = *source;
+        destination++;
+        source++;
+    }
+    *destination = '\0';
+    return 1;
+}
