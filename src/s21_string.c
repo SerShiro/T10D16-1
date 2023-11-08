@@ -12,3 +12,20 @@ int s21_strlen(const char* str) {
     }
     return len;
 }
+
+int s21_strcmp(const char* str1, const char* str2) {
+    int len = 0;
+    if (!str1 || !str2) {
+        return 0;
+    }
+    while (str1[len] != '\0' || str2[len] != '\0') {
+        if (str1[len] != str2[len]) {
+            return 0;
+        }
+        len++;
+    }
+    if ((str1[len] == '\0' && str2[len] != '\0') || (str1[len] != '\0' && str2[len] == '\0')) {
+        return 0;
+    }
+    return 1;
+}

@@ -4,14 +4,11 @@ BUILD_DIR = ../build
 
 all: strlen_tests
 
-strlen_tests : s21_string.o s21_string_test.o
-	$(CC) $(CFLAGS) s21_string.o s21_string_test.o -o $(BUILD_DIR)/Quest_1
+strlen_tests : clean
+	$(CC) $(CFLAGS) -D STRLEN s21_string.c s21_string_test.c -o $(BUILD_DIR)/Quest_1
 
-$(BUILD_DIR)/s21_string.o : s21_string.c
-	$(CC) $(CFLAGS)  s21_string.c -o s21_string.o
-
-$(BUILD_DIR)/s21_string_test.o : s21_string_test.c
-	$(CC) $(CFLAGS) -c s21_string_test.c  -o s21_string_test.o
+strcmp_tests : clean
+	$(CC) $(CFLAGS) -D STRCMP s21_string.c s21_string_test.c -o $(BUILD_DIR)/Quest_2
 	
 clean:
 	rm -f ./*.o
